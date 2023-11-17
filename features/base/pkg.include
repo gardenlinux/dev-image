@@ -22,6 +22,7 @@ dbus-bin
 dbus-daemon
 dbus-session-bus-common
 dbus-system-bus-common
+dbus-user-session
 debconf
 debian-archive-keyring
 debianutils
@@ -40,6 +41,7 @@ gcc-13-base
 gdisk
 genisoimage
 gettext-base
+git
 gpgv
 grep
 groff-base
@@ -135,6 +137,7 @@ python3.11-minimal
 qemu-utils
 readline-common
 reportbug
+rootlesskit
 runit-helper
 screen
 sed
@@ -143,6 +146,7 @@ sgml-base
 shim-signed
 shim-signed-common
 shim-unsigned
+slirp4netns
 socat
 sudo
 systemd
@@ -158,11 +162,11 @@ tzdata
 tzdata-legacy
 ucf
 udev
+unzip
 usr-is-merged
 util-linux
 util-linux-extra
 uuid-runtime
-unzip
 vim
 vim-common
 vim-runtime
