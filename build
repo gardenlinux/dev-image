@@ -3,7 +3,7 @@
 set -euo pipefail
 shopt -s nullglob
 
-container_image=ghcr.io/gardenlinux/builder:8e513c0afda1db01b4b14b6d8245bb077fde210e
+container_image=localhost/builder
 container_engine=podman
 target_dir=.build
 
@@ -75,7 +75,8 @@ done
 
 if [ "$container_image" = localhost/builder ]; then
 	dir="$(dirname -- "$(realpath -- "${BASH_SOURCE[0]}")")"
-	"$container_engine" build -t "$container_image" "$dir"
+	containerfile=$([[ -f builder.dockerfile ]] && echo -f builder.dockerfile || true )
+	"$container_engine" build -t "$container_image" $containerfile "$dir"
 fi
 
 repo="$(./get_repo)"
