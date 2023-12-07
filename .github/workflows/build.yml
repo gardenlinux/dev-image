@@ -10,7 +10,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [ amd64, arm64 ]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
       - name: Build the image
-        run: ./build base-lima-dev
+        run: ./build base-lima-dev-${{ matrix.arch }}
+      - name: Upload debian ${{ matrix.arch }} image
+        uses: actions/upload-artifact@v3
+        with:
+          name: dev-image-${{ matrix.arch }}
+          path: .build/base-dev-lima-${{ matrix.arch }}-trixie-*.qcow2
+          retention-days: 2
