@@ -82,7 +82,7 @@ perl-base
 polkitd
 procps
 psmisc
-python-apt
+python3-apt
 python3
 readline-common
 reportbug
