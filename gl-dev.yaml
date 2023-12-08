@@ -1,0 +1,14 @@
+images:
+- location: "./dev-amd64.qcow2"
+  arch: "x86_64"
+- location: "./dev-arm64.qcow2"
+  arch: "aarch64"
+
+vmType: qemu
+os: Linux
+memory: 8GiB
+ssh:
+  loadDotSSHPubKeys: true
+containerd:
+  system: false
+  user: false
