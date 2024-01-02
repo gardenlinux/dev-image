@@ -93,8 +93,8 @@ set_defaults () {
     gardenlinux_build_cre=${GARDENLINUX_BUILD_CRE:-"sudo podman"}
 
     # Set default vars
-    cpu="2"
-    memory="2Gi"
+    cpu="4"
+    memory="8Gi"
     mac="$(printf '02:%02x:%02x:%02x:%02x:%02x' $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)))"
     mac="$(printf "%012s" | tr -d ":" <<< ${mac,,})"
     macfull="$(sed 's/../&:/g;s/:$//' <<< $mac)"
