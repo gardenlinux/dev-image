@@ -13,5 +13,6 @@ slirp4netns
 sudo
 tldr
 tmux
+uidmap
 wget
 zsh

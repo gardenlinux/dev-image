@@ -2,5 +2,5 @@
 
 set -eufo pipefail
 
-useradd --user-group --create-home dev
+useradd --user-group --create-home --shell=/usr/bin/bash dev
 id dev

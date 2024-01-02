@@ -3,6 +3,7 @@ base-files
 base-passwd
 bash
 bsdutils
+ca-certificates
 coreutils
 dash
 dbus
@@ -14,6 +15,7 @@ dbus-user-session
 debconf
 debian-archive-keyring
 debianutils
+dialog
 diffutils
 dpkg
 dracut
