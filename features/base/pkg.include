@@ -5,6 +5,7 @@ bash
 bsdutils
 coreutils
 dash
+dbus
 debconf
 debian-archive-keyring
 debianutils
