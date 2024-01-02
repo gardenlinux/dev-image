@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-lima:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -25,4 +25,23 @@ jobs:
         with:
           name: dev-image-${{ matrix.arch }}
           path: .build/base-dev-lima-${{ matrix.arch }}-trixie-*.qcow2
+          retention-days: 2
+
+  build-raw:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [ amd64, arm64 ]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Build the image
+        run: ./build base-dev-${{ matrix.arch }}
+      - name: Upload debian ${{ matrix.arch }} image
+        uses: actions/upload-artifact@v4
+        with:
+          name: dev-image-${{ matrix.arch }}
+          path: .build/base-dev-${{ matrix.arch }}-trixie-*.raw
           retention-days: 2
