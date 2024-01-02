@@ -43,5 +43,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dev-image-${{ matrix.arch }}
-          path: .build/base-dev-${{ matrix.arch }}-trixie-*.raw
+          path: .build/base-dev-raw-${{ matrix.arch }}-trixie-*.raw
           retention-days: 2

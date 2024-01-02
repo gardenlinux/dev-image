@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+useradd --user-group --groups wheel --create-home dev
+id dev
