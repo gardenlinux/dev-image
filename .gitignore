@@ -1,2 +1,3 @@
 .build
 *qcow2
+bin/*.vars
