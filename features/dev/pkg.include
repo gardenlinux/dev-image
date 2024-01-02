@@ -1,3 +1,4 @@
+curl
 git
 neovim
 podman
@@ -9,5 +10,8 @@ qemu-user-static
 qemu-utils
 screen
 slirp4netns
+sudo
 tldr
 tmux
+wget
+zsh
