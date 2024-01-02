@@ -1,3 +1,4 @@
+git
 neovim
 podman
 podman-compose
@@ -6,5 +7,7 @@ qemu-system-arm
 qemu-system-x86
 qemu-user-static
 qemu-utils
+screen
 slirp4netns
 tldr
+tmux
