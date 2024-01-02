@@ -2,5 +2,5 @@
 
 set -eufo pipefail
 
-useradd --user-group --groups wheel --create-home dev
+useradd --user-group --create-home dev
 id dev
