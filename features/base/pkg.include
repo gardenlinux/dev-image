@@ -6,6 +6,11 @@ bsdutils
 coreutils
 dash
 dbus
+dbus-bin
+dbus-daemon
+dbus-session-bus-common
+dbus-system-bus-common
+dbus-user-session
 debconf
 debian-archive-keyring
 debianutils
