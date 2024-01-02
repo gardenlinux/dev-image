@@ -23,7 +23,7 @@ jobs:
       - name: Upload debian ${{ matrix.arch }} image
         uses: actions/upload-artifact@v4
         with:
-          name: dev-image-${{ matrix.arch }}
+          name: lima-dev-image-${{ matrix.arch }}
           path: .build/base-dev-lima-${{ matrix.arch }}-trixie-*.qcow2
           retention-days: 2
 
