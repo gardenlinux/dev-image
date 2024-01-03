@@ -2,3 +2,4 @@ cloud-init
 sudo
 sshfs
 uidmap
+openssh-server
