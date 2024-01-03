@@ -1,1 +1,5 @@
 cloud-init
+sudo
+sshfs
+uidmap
+shadow-utils
