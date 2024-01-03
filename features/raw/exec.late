@@ -4,3 +4,13 @@ set -eufo pipefail
 
 useradd --user-group --create-home --shell=/usr/bin/bash dev
 id dev
+
+mkdir /home/dev/.ssh
+chmod -R 700 /home/dev/.ssh
+chown -R dev:dev /home/dev/.ssh
+find /home/dev -printf '%M %u:%g %p\n'
+
+echo '#!/usr/bin/bash' > /home/dev/make-dev-ssh-key.sh
+echo 'ssh-keygen -b 1024 -t rsa -f ~/.ssh/id_rsa -q -N ""' >> /home/dev/make-dev-ssh-key.sh
+echo 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys' >> /home/dev/make-dev-ssh-key.sh
+chmod +x /home/dev/make-dev-ssh-key.sh
