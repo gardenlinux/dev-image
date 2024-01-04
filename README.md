@@ -11,13 +11,28 @@ The image supports two modes of operation:
 
 Using lima might be desriable for its life cycle features, but is entirely optional.
 
+The image can be used in combination with [remote development using ssh features by vs code](https://code.visualstudio.com/docs/remote/ssh).
+
 ## Raw qemu
 
 ```bash
 ./build base-dev-raw
 ./bin/start-vm .build/base-dev-raw-(arm/amd)64-trixie-*.raw
-# Put ssh key to $HOME/.gardenlinux/dev-id_rsa
+# Generate ssh key via `make-dev-ssh-key.sh`
+# Put ssh key to $HOME/.gardenlinux/dev-id_rsa on your host
 ./bin/devssh
+```
+
+To use it with vs code remote ssh, add an entry like this to your `.ssh/config` file (be sure to replace the path of your home directory):
+
+```
+Host gl-dev
+  HostName localhost
+  StrictHostKeyChecking no
+  IdentityFile /YOUR_HOME_DIR/.gardenlinux/dev-id_rsa
+  Port 2223
+  BatchMode yes
+  User dev
 ```
 
 ## Lima-VM
