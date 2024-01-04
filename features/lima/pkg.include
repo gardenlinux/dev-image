@@ -1,5 +1,5 @@
 cloud-init
-sudo
-sshfs
-uidmap
 openssh-server
+sshfs
+sudo
+uidmap

@@ -1,5 +1,7 @@
 curl
+gh
 git
+htop
 neovim
 podman
 podman-compose
@@ -16,4 +18,3 @@ tmux
 uidmap
 wget
 zsh
-gh
