@@ -9,8 +9,16 @@ mkdir /home/dev/.ssh
 chmod -R 700 /home/dev/.ssh
 chown -R dev:dev /home/dev/.ssh
 
-cp -r /opt/gardenlinux/user-skel/* /home/dev
-chmod +x /home/dev/*sh
+echo '#!/usr/bin/bash' > /home/dev/make-dev-ssh-key.sh
+echo 'ssh-keygen -b 1024 -t rsa -f ~/.ssh/id_rsa -q -N ""' >> /home/dev/make-dev-ssh-key.sh
+echo 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys' >> /home/dev/make-dev-ssh-key.sh
+chmod +x /home/dev/make-dev-ssh-key.sh
+
+echo '#!/usr/bin/bash' > /home/dev/clone.sh
+echo 'gh repo clone gardenlinux/gardenlinux' >> /home/dev/clone.sh
+echo 'gh repo clone gardenlinux/builder' >> /home/dev/clone.sh
+echo 'gh repo clone gardenlinux/builder_example' >> /home/dev/clone.sh
+chmod +x /home/dev/clone.sh
 
 echo '. /opt/gardenlinux/cli-helpers.sh' >> /home/dev/.bashrc
 
