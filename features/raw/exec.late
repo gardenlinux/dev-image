@@ -8,11 +8,14 @@ id dev
 mkdir /home/dev/.ssh
 chmod -R 700 /home/dev/.ssh
 chown -R dev:dev /home/dev/.ssh
-find /home/dev -printf '%M %u:%g %p\n'
 
 echo '#!/usr/bin/bash' > /home/dev/make-dev-ssh-key.sh
 echo 'ssh-keygen -b 1024 -t rsa -f ~/.ssh/id_rsa -q -N ""' >> /home/dev/make-dev-ssh-key.sh
 echo 'cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys' >> /home/dev/make-dev-ssh-key.sh
 chmod +x /home/dev/make-dev-ssh-key.sh
 
-echo '. opt/gardenlinux/cli-helpers.sh' >> /home/dev/.bashrc
+echo '. /opt/gardenlinux/cli-helpers.sh' >> /home/dev/.bashrc
+
+chown -R dev:dev /home/dev
+find /home/dev -printf '%M %u:%g %p\n'
+
