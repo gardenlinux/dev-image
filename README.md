@@ -121,6 +121,12 @@ Connect to host 'lima-gl-dev' in VS Code via the SSH Remote plugin
 
 ## Required configuration in the virtual machine
 
-- Perform the required git configuration to be able to commit and push code
-    - Configure your name and email
-    - Configure a [GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+Perform the required git configuration to be able to commit and push code
+  - Configure your name and email
+  - Configure a [GitHub personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email your-email@example.com
+export GH_TOKEN='YOUR_TOKEN'
+```
