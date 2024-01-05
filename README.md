@@ -9,7 +9,7 @@ The image supports two modes of operation:
 - As a raw qemu vm
 - As a [lima-vm](https://lima-vm.io/)
 
-Using lima might be desriable for its life cycle features, but is entirely optional.
+Using lima might be desirable for its life-cycle features, but is entirely optional.
 
 The image can be used in combination with [remote development using ssh features by vs code](https://code.visualstudio.com/docs/remote/ssh).
 
@@ -18,7 +18,7 @@ The image can be used in combination with [remote development using ssh features
 To make use of this development environment, your host machine needs at least 16 GiB of memory and 8 CPU cores.
 
 The `start-vm` script will by default use 8 GiB and 4 cores for running the VM.
-It's not recommended to lower those settings, but you might want to increase them based on your available hardware and use-case.
+It's not recommended to lower those settings, but you might want to increase them based on your available hardware and your use-case.
 
 Your host needs to have [qemu](https://www.qemu.org) installed.
 
@@ -64,7 +64,7 @@ gh run download --name lima-dev-image-amd64
 gh run download --name lima-dev-image-arm64
 ```
 
-## Runing the virtual machine
+## Running the virtual machine
 
 To run the virtual machine, either build the image or download a pre-built image.
 Be sure to pick the variant that's suitable for your use-case.
