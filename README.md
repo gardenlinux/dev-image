@@ -13,6 +13,17 @@ Using lima might be desriable for its life cycle features, but is entirely optio
 
 The image can be used in combination with [remote development using ssh features by vs code](https://code.visualstudio.com/docs/remote/ssh).
 
+## Requirements
+
+To make use of this development environment, your host machine needs at least 16 GiB of memory and 8 CPU cores.
+
+The `start-vm` script will by default use 8 GiB and 4 cores for running the VM.
+It's not recommended to lower those settings, but you might want to increase them based on your available hardware and use-case.
+
+Your host needs to have [qemu](https://www.qemu.org) installed.
+
+Installing [lima-vm](https://lima-vm.io) is optional based on if you prefer to use it.
+
 ## Building the image
 
 The image can be built in two variants.
