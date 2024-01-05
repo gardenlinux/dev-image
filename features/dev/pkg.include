@@ -1,4 +1,6 @@
+binutils
 curl
+file
 gh
 git
 htop
