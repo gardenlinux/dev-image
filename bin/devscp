@@ -1,0 +1,4 @@
+#!/bin/bash
+set -Eeuo pipefail
+
+scp -o StrictHostKeyChecking=no -i $HOME/.gardenlinux/dev-id_rsa -P 2223 $@ 

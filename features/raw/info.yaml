@@ -1,0 +1,2 @@
+description: "Setup for raw qemu vm (without lima-vm)"
+type: flag
