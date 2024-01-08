@@ -1,12 +1,17 @@
 # Garden Linux Dev Image 🐧💻
 
-This image based on [the Garden Linux Builder](https://github.com/gardenlinux/builder) is meant for building [Garden Linux](https://gardenlinux.io/).
-The Garden Linux Builder is containerized, so if your build host is running Linux you probably don't need this image.
-You may still want to use the image as it provides a ready-to-use environment for working with Garden Linux.
-It's purpose is to make it more convenient to build and develop Garden Linux and related projects.
+This virtual machine image based on [the Garden Linux Builder](https://github.com/gardenlinux/builder) is meant for building [Garden Linux](https://gardenlinux.io/).
 
-The image supports two modes of operation:
-- As a raw qemu vm
+The dev image provides:
+- A reproducible environment optimized for the Garden Linux development workflow
+- An environment to contribute to Garden Linux on non-linux hosts (tested on macOS)
+- A selection of helpful tools and configuration geared towards the best developer experience
+
+If you are trying to build Garden Linux on your own machine, and it does not work, please try building it inside the dev image.
+Feel free to open an [issue](https://github.com/gardenlinux/gardenlinux/issues/new/choose) if you have issues building Garden Linux.
+
+The dev image supports two modes of operation:
+- As a raw [QEMU](https://www.qemu.org) vm (using the `start-vm` script)
 - As a [lima-vm](https://lima-vm.io/)
 
 Using lima might be desirable for its life-cycle features, but is entirely optional.
@@ -82,8 +87,8 @@ After starting the virtual machine, create a ssh key using the `make-dev-ssh-key
 ```bash
 git clone https://github.com/gardenlinux/dev-image
 dev-image/bin/start-vm path-to/base-dev-raw-(arm/amd)64-trixie-*.raw
-# Generate ssh key via `make-dev-ssh-key.sh`
-# Put ssh key to $HOME/.gardenlinux/dev-id_rsa on your host
+# Generate ssh key via `make-dev-ssh-key.sh` inside the vm
+# Put the generated ssh key (.ssh/id_rsa in the vm) to $HOME/.gardenlinux/dev-id_rsa on your host
 dev-image/bin/devssh
 ```
 
@@ -105,7 +110,12 @@ Now you can connect to the `gl-dev` host and work like you would on your local w
 
 ### Lima-VM
 
-Create a `gl-dev.yaml` manifest file based on this template:
+[lima-vm](https://lima-vm.io/) is written in go and makes use of QEMU under the hood.
+It provides advanced provisioning and life cycle management features which might make it more convenient compared to using `start-vm`.
+
+To use it, get the lima dev vm image (the file ends in `qcow2`).
+
+Create a `gl-dev.yaml` manifest file based on this template, and adjust the path to your image:
 
 ```yaml
 images:
