@@ -11,8 +11,5 @@ chown -R dev:dev /home/dev/.ssh
 
 echo '. /opt/gardenlinux/cli-helpers.sh' >> /home/dev/.bashrc
 
-sudo --user dev git clone https://github.com/gardenlinux/gardenlinux /home/dev/gardenlinux
-sudo --user dev git clone https://github.com/gardenlinux/builder /home/dev/builder
-
 chown -R dev:dev /home/dev
 find /home/dev -printf '%M %u:%g %p\n'
