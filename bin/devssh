@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -Eeuo pipefail
 
 ssh -o StrictHostKeyChecking=no -i $HOME/.gardenlinux/dev-id_rsa -p 2223 -oBatchMode=yes dev@localhost
