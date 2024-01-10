@@ -15,6 +15,7 @@ main () {
     set_defaults
     get_opts "$@"
     set_binaries
+    qemu_opt_userconfig
     qemu_opt_ignition
     qemu_opt_pxe
     qemu_opt_disk
@@ -107,6 +108,7 @@ set_defaults () {
     pxe_binary=
     pxefile=${CURR_DIR}/../examples/ipxe/start-vm.ipxe
     ignfile=
+    userconfig=
     pidfile=
     uefi=1
     uefi_code=
@@ -150,6 +152,7 @@ source "${CURR_DIR}/.constants.sh" \
     --flags 'cpu:,mem:,bridge:,port:,mac:,arch:' \
     --flags 'pxe:' \
     --flags 'ignfile:' \
+    --flags 'userconfig:' \
     --flags 'pidfile:' \
     --flags 'ueficode:,uefivars:' \
     --flags 'destport:' \
@@ -170,6 +173,7 @@ source "${CURR_DIR}/.constants.sh" \
 --mac       <macaddr>     The mac address is usually randomized. It is used to identify the monitoring port, the mac address of the machine and the UUID. Can be set to this value.
 --pxe       <bool>        Enables pxe boot on the vm. Minimum one image file must be a directory.
 --ignfile   <path>        Provide an ignition file when pxe booting. Can be used standalone.
+--userconfig <string>      Provide a github repo in the form of username/repo for user-specific provisioning
 --pidfile   <path>        Provide a file where to store the pid of the started qemu vm.
 --daemonize <bool>        Start the virtual machine in background, console deactivated (default: no).
 --no-watchdog <bool>        Disables the watchdog qemu option. Used for kvm tests on podman
@@ -196,6 +200,7 @@ while true; do
         --bridge)       bridge="$1";    shift ;;
         --pxe )         pxe="$(realpath $1)";      shift ;;
         --ignfile )     ignfile="$(realpath $1)";  shift ;;
+        --userconfig )  userconfig="$1";shift ;;
         --pidfile)      pidfile="$(realpath $1)";  shift ;;
         --port)         port="$1";      shift ;;
         --destport)     port_dest="$1"; shift ;;
@@ -250,6 +255,12 @@ set_binaries () {
         bin_stat="gstat"
         bin_sed="gsed"
         bin_uuid="/usr/bin/uuidgen"
+    fi
+}
+
+qemu_opt_userconfig () {
+    if [ $userconfig ]; then
+        QEMU_OPTS+=( -fw_cfg name=gardenlinux-dev-image-user-config,string=${userconfig} )
     fi
 }
 
