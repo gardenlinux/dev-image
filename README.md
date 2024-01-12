@@ -96,7 +96,8 @@ This provides a ssh login to the virtual machine.
 
 > [!TIP]
 > You may provide the optional `--userconfig` argument to `start-vm` which contains the path to a public GitHub repository in the form `username/repo`.
-> This repository should contain a executable file `config.sh` which may include custom user-specific configuration, for example to configure git for your name and email.
+> This repository must contain a executable file `config.sh` which may include custom user-specific configuration, for example to configure git for your name and email.
+> See [gardenlinux/dev-image-user-config-template](https://github.com/gardenlinux/dev-image-user-config-template) for an example and template you can build on.
 
 To use it with vs code remote ssh, add an entry like this to your `.ssh/config` file (be sure to replace the path of your home directory):
 
