@@ -86,13 +86,17 @@ After starting the virtual machine, create a ssh key using the `make-dev-ssh-key
 
 ```bash
 git clone https://github.com/gardenlinux/dev-image
-dev-image/bin/start-vm path-to/base-dev-raw-(arm/amd)64-trixie-*.raw
+dev-image/bin/start-vm [--userconfig username/repo] path-to/base-dev-raw-(arm/amd)64-trixie-*.raw
 # Generate ssh key via `make-dev-ssh-key.sh` inside the vm
 # Put the generated ssh key (.ssh/id_rsa in the vm) to $HOME/.gardenlinux/dev-id_rsa on your host
 dev-image/bin/devssh
 ```
 
 This provides a ssh login to the virtual machine.
+
+> [!TIP]
+> You may provide the optional `--userconfig` argument to `start-vm` which contains the path to a public GitHub repository in the form `username/repo`.
+> This repository should contain a executable file `config.sh` which may include custom user-specific configuration, for example to configure git for your name and email.
 
 To use it with vs code remote ssh, add an entry like this to your `.ssh/config` file (be sure to replace the path of your home directory):
 
