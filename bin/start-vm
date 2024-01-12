@@ -260,7 +260,7 @@ set_binaries () {
 
 qemu_opt_userconfig () {
     if [ $userconfig ]; then
-        QEMU_OPTS+=( -fw_cfg name=gardenlinux-dev-image-user-config,string=${userconfig} )
+        QEMU_OPTS+=( -fw_cfg name=opt/io.gardenlinux.dev.user-config,string=${userconfig} )
     fi
 }
 

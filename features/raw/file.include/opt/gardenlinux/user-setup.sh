@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-CONFIG=$(sudo cat /sys/firmware/qemu_fw_cfg/by_name/gardenlinux-dev-image-user-config/raw)
+CONFIG=$(sudo cat /sys/firmware/qemu_fw_cfg/by_name/opt/io.gardenlinux.dev.user-config/raw)
 
 if [[ -n $CONFIG ]]; then
     echo Installing user-config from "$CONFIG"
