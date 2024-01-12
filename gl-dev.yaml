@@ -1,0 +1,9 @@
+images:
+- location: "./path-to/dev-image.qcow2"
+
+vmType: qemu
+os: Linux
+memory: 8GiB
+containerd:
+  system: false
+  user: false

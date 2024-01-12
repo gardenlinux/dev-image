@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eufo pipefail
+
+useradd --user-group --create-home --shell=/usr/bin/bash dev
+id dev
+
+mkdir /home/dev/.ssh
+chmod -R 700 /home/dev/.ssh
+chown -R dev:dev /home/dev/.ssh
+
+mkdir -p /home/dev/.local/share/tldr
+
+echo '. /opt/gardenlinux/cli-helpers.sh' >> /home/dev/.bashrc
+
+chown -R dev:dev /home/dev
+find /home/dev -printf '%M %u:%g %p\n'

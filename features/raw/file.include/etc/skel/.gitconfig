@@ -1,0 +1,14 @@
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[alias]
+	st = status
+	co = checkout
+	rb = rebase
+	ci = commit
+	br = branch
+	cp = cherry-pick
+	fa = fetch --all
+[credential]
+	helper = store
