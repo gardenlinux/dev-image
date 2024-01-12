@@ -1,1 +1,1 @@
-FROM ghcr.io/fwilhe/builder:d66316e0589fef115c334b87062011cddb588144
+FROM ghcr.io/gardenlinux/builder:4a395cad14e11737b1a71c8299c5b11dd4e23082
