@@ -2,3 +2,13 @@ rsync
 python3-debian
 xz-utils
 pristine-lfs
+build-essential
+bc
+kmod
+cpio
+flex
+libncurses5-dev
+libelf-dev
+libssl-dev
+dwarves
+bison
