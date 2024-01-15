@@ -12,3 +12,5 @@ libelf-dev
 libssl-dev
 dwarves
 bison
+dh-dkms
+dkms
