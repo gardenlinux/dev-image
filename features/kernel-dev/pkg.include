@@ -15,3 +15,4 @@ bison
 dh-dkms
 dkms
 devscripts
+quilt
