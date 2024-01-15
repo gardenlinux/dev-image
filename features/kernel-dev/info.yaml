@@ -1,0 +1,6 @@
+description: "debian kernel maintanance tools"
+type: element
+features:
+  include:
+    - dev
+
