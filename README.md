@@ -49,24 +49,12 @@ To build the lima-vm variant, run this command:
 
 Images are built on GitHub Actions and can be downloaded using the `gh` cli tool.
 
+Check for available artifacts via `gh run view` or [on the web](https://github.com/gardenlinux/dev-image/actions).
+
 Download the raw image, depending on architecture:
 
 ```bash
-gh run download --name dev-image-amd64
-```
-
-```bash
-gh run download --name dev-image-arm64
-```
-
-Download the lima-vm image, depending on architecture:
-
-```bash
-gh run download --name lima-dev-image-amd64
-```
-
-```bash
-gh run download --name lima-dev-image-arm64
+gh run download --name [ARTIFACT_NAME]
 ```
 
 ## Running the virtual machine
