@@ -1,6 +1,7 @@
 binutils
 curl
 file
+fzf
 gh
 git
 htop
