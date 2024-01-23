@@ -29,20 +29,22 @@ Your host needs to have [qemu](https://www.qemu.org) installed.
 
 Installing [lima-vm](https://lima-vm.io) is optional based on if you prefer to use it.
 
-## Building the image
+## Image Structure
 
-The image can be built in two variants.
+The image is composed of _features_.
+Which features are selected at build time determines what the image contains.
 
-To build the qemu variant, run this command:
+This graph explains how the features are connected to each other.
 
-```
-./build base-dev-raw
-```
-
-To build the lima-vm variant, run this command:
-
-```
-./build base-dev-lima
+```mermaid
+graph TD;
+    base-->dev;
+    dev-->imagebuilder;
+    dev-->kernelbuilder;
+    imagebuilder-->qemu;
+    imagebuilder-->lima;
+    kernelbuilder-->qemu;
+    kernelbuilder-->lima;
 ```
 
 ## Downloading pre-built images
@@ -51,11 +53,26 @@ Images are built on GitHub Actions and can be downloaded using the `gh` cli tool
 
 Check for available artifacts via `gh run view` or [on the web](https://github.com/gardenlinux/dev-image/actions).
 
-Download the raw image, depending on architecture:
+Select a _variant_ (`imagebuilder` or `kernelbuilder`), a _platform_ (`qemu` or `lima`) and an _architecture_ (`amd64` or `arm64`) of your choice.
+
+Download the image, depending the combination of variant, platform and architecture:
 
 ```bash
 gh run download --name [ARTIFACT_NAME]
 ```
+
+## Building the image
+
+> [!NOTE]
+> Typically you won't need to build the image yourself.
+> In most cases, downloading a pre-built image will be the better option.
+
+To build an image, select a _variant_ (`imagebuilder` or `kernelbuilder`) and a platform (`qemu` or `lima`).
+
+```bash
+./build imagebuilder-qemu
+```
+
 
 ## Running the virtual machine
 
@@ -74,7 +91,7 @@ After starting the virtual machine, create a ssh key using the `make-dev-ssh-key
 
 ```bash
 git clone https://github.com/gardenlinux/dev-image
-dev-image/bin/start-vm [--userconfig username/repo] path-to/base-dev-raw-(arm/amd)64-trixie-*.raw
+dev-image/bin/start-vm [--userconfig username/repo] path-to/(imagebuilder/kernelbuilder)-(qemu/lima)-(arm/amd)64-trixie-*.raw
 # Generate ssh key via `make-dev-ssh-key.sh` inside the vm
 # Put the generated ssh key (.ssh/id_rsa in the vm) to $HOME/.gardenlinux/dev-id_rsa on your host
 dev-image/bin/devssh
