@@ -1,0 +1,5 @@
+description: "Contains everything needed for building images using the Garden Linux builder"
+type: element
+features:
+  include:
+    - dev

@@ -14,19 +14,20 @@ jobs:
       fail-fast: false
       matrix:
         arch: [ amd64, arm64 ]
-        target: [ "dev-lima", "dev-raw", "kerneldev-lima", "kerneldev-raw" ] 
+        variant: [ imagebuilder, kernelbuilder ]
+        platform: [ qemu, lima ]
     steps:
       - uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Build the image
-        run: ./build base-${{ matrix.target}}-${{ matrix.arch }}
+        run: ./build ${{ matrix.variant}}-${{ matrix.platform}}-${{ matrix.arch }}
       - name: Upload debian ${{ matrix.arch }} image
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.target}}-image-${{ matrix.arch }}
+          name: ${{ matrix.variant}}-${{ matrix.platform}}-image-${{ matrix.arch }}
           path: |
-            .build/base-${{ matrix.target}}-${{ matrix.arch }}-trixie-*.qcow2
-            .build/base-${{ matrix.target}}-${{ matrix.arch }}-trixie-*.raw
+            .build/${{ matrix.variant}}-${{ matrix.platform}}-${{ matrix.arch }}-trixie-*.qcow2
+            .build/${{ matrix.variant}}-${{ matrix.platform}}-${{ matrix.arch }}-trixie-*.raw
           if-no-files-found: ignore
           retention-days: 3
