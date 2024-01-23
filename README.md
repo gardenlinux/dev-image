@@ -11,8 +11,8 @@ If you are trying to build Garden Linux on your own machine, and it does not wor
 Feel free to open an [issue](https://github.com/gardenlinux/gardenlinux/issues/new/choose) if you face any problems when building Garden Linux.
 
 The dev image supports two modes of operation:
-- As a raw [QEMU](https://www.qemu.org) vm (using the `start-vm` script)
-- As a [lima-vm](https://lima-vm.io/)
+- As a [QEMU](https://www.qemu.org) vm (using the `start-vm` script)
+- As a [lima-vm](https://lima-vm.io/) (using the [`limactl`](https://lima-vm.io/docs/usage/) command)
 
 Using lima might be desirable for its life-cycle features, but is entirely optional.
 
@@ -79,7 +79,7 @@ To build an image, select a _variant_ (`imagebuilder` or `kernelbuilder`) and a 
 To run the virtual machine, either build the image or download a pre-built image.
 Be sure to pick the variant that's suitable for your use-case.
 
-### Raw qemu
+### QEMU
 
 This method makes use of the `start-vm` script that's part of this GitHub repo.
 Using this method you will be logged in using the `dev` user and you can make use of `sudo` without providing a password.
@@ -137,6 +137,19 @@ memory: 8GiB
 containerd:
   system: false
   user: false
+provision:
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      export DEBIAN_FRONTEND=noninteractive
+      apt-get update
+      echo Put your root-permission provisioning here (for example installing additional packages using apt-get)
+  - mode: user
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      echo Put your user-permission provisioning here (for example cloning your dotfiles, making custom aliases, etc)
 ```
 
 Create and start the virtual machine:
