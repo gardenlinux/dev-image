@@ -34,6 +34,16 @@ Installing [lima-vm](https://lima-vm.io) is optional based on if you prefer to u
 The image is composed of _features_.
 Which features are selected at build time determines what the image contains.
 
+| Feature         | Description                                                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `base`          | Base OS for Debian Testing                                                                                                                                                                 |
+| `dev`           | Common development packages and tools usually required or useful for Garden Linux development                                                                                              |
+| `imagebuilder`  | Packages useful for building images based on [the Garden Linux Builder](https://github.com/gardenlinux/builder), such as [Garden Linux](https://github.com/gardenlinux/gardenlinux) itself |
+| `kernelbuilder` | Packages useful for building the Kernel of Garden Linux                                                                                                                                    |
+| `qemu`          | User setup for running the VM using QEMU                                                                                                                                                   |
+| `lima`          | Packages needed by lima-vm to provision the VM                                                                                                                                             |
+
+
 This graph explains how the features are connected to each other.
 
 ```mermaid
