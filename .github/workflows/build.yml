@@ -25,7 +25,7 @@ jobs:
       - name: Upload debian ${{ matrix.arch }} image
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.variant}}-${{ matrix.platform}}-image-${{ matrix.arch }}
+          name: ${{ matrix.variant}}-${{ matrix.platform}}-${{ matrix.arch }}
           path: |
             .build/${{ matrix.variant}}-${{ matrix.platform}}-${{ matrix.arch }}-trixie-*.qcow2
             .build/${{ matrix.variant}}-${{ matrix.platform}}-${{ matrix.arch }}-trixie-*.raw
