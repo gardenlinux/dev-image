@@ -13,6 +13,7 @@ qemu-system-x86
 qemu-user-static
 qemu-utils
 screen
+shellcheck
 slirp4netns
 sudo
 tldr
