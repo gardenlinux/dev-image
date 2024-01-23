@@ -3,12 +3,12 @@
 This virtual machine image based on [the Garden Linux Builder](https://github.com/gardenlinux/builder) is meant for building [Garden Linux](https://gardenlinux.io/).
 
 The dev image provides:
-- A reproducible environment optimized for the Garden Linux development workflow
+- An isolated and reproducible environment optimized for the Garden Linux development workflow
 - An environment to contribute to Garden Linux on non-linux hosts (tested on macOS)
 - A selection of helpful tools and configuration geared towards the best developer experience
 
 If you are trying to build Garden Linux on your own machine, and it does not work, please try building it inside the dev image.
-Feel free to open an [issue](https://github.com/gardenlinux/gardenlinux/issues/new/choose) if you have issues building Garden Linux.
+Feel free to open an [issue](https://github.com/gardenlinux/gardenlinux/issues/new/choose) if you face any problems when building Garden Linux.
 
 The dev image supports two modes of operation:
 - As a raw [QEMU](https://www.qemu.org) vm (using the `start-vm` script)
