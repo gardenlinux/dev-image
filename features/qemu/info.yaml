@@ -1,0 +1,2 @@
+description: "Setup for raw qemu vm (without lima-vm) to be used with the start-vm script"
+type: element

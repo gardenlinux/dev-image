@@ -30,8 +30,8 @@ iproute2
 linux-image-$arch
 login
 logsave
-manpages
 man-db
+manpages
 mawk
 mount
 ncurses-base

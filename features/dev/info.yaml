@@ -1,2 +1,5 @@
 description: "development tools"
-type: flag
+type: element
+features:
+  include:
+    - base

@@ -15,6 +15,7 @@ qemu-user-static
 qemu-utils
 screen
 shellcheck
+silversearcher-ag
 slirp4netns
 sudo
 tldr
