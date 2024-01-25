@@ -6,7 +6,7 @@ fi
 
 # As described here https://github.com/gardenlinux/gardenlinux/blob/169f15c70afbae7b578839520eeedb9ed2619c02/docs/02_operators/deployment/aws-secureboot.md?plain=1#L107
 if [ -d /opt/gardenlinux/python-uefivars ]; then
-	export PATH=/opt/gardenlinux/python-uefivars:$PATH
+	export PATH=/opt/gardenlinux/third_party/python-uefivars:$PATH
 fi
 
 alias ls='ls --group-directories-first --time-style=long-iso --color=auto --classify'
